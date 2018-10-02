@@ -28,7 +28,7 @@ module.exports = {
     new webpack.DefinePlugin({
       // global app config object
       config: JSON.stringify({
-        apiUrl: 'http://localhost:4000'
+        apiUrl: 'http://localhost:8080/api/v1'
       })
     })
   ],
@@ -39,6 +39,8 @@ module.exports = {
     runtimeChunk: true
   },
   devServer: {
+    host: '0.0.0.0', 
+    port: 4000,
     historyApiFallback: true
   }
 };
