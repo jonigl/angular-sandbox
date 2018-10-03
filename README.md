@@ -1,7 +1,9 @@
 # Front End
 
 Webpack with hot reload
+
 Web server (webpack-dev-server) port 4000
+
 API expected at port 8080
 
 # Docker usage
