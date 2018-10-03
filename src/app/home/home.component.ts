@@ -2,17 +2,18 @@
 import { first } from 'rxjs/operators';
 
 import { List } from '../_models';
-import { UserService } from '../_services';
+import { ListService } from '../_services';
 
 @Component({templateUrl: 'home.component.html'})
 export class HomeComponent implements OnInit {
-    list: List[];
-
-    constructor(private userService: UserService) {}
+    lists: List[];
+    
+    constructor(private listService: ListService) {}
 
     ngOnInit() {
-        this.userService.getAll().pipe(first()).subscribe(list => { 
-            this.list = list; 
+        this.listService.getAll().pipe(first()).subscribe(page => { 
+            this.lists = page.content; 
+            console.log(page);
         });
     }
 }

@@ -1,5 +1,7 @@
 ﻿const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const helpers = require('./helpers');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 module.exports = {
   entry: './src/main.ts',
@@ -30,6 +32,18 @@ module.exports = {
       config: JSON.stringify({
         apiUrl: 'http://localhost:8080/api/v1'
       })
+    }),
+    // Workaround for Critical dependency 
+    // The request of a dependency is an expression in ./node_modules/@angular/core/fesm5/core.js
+    new webpack.ContextReplacementPlugin(
+      /\@angular(\\|\/)core(\\|\/)fesm5/,
+      helpers.root('./src'),
+      {}
+    ),
+    // Remove `System.import()` usage in favor of `import()`
+    // https://github.com/angular/angular/issues/21560#issuecomment-416991945
+    new FilterWarningsPlugin({ 
+      exclude: /System.import/ 
     })
   ],
   optimization: {
