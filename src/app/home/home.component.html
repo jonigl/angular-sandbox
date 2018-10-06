@@ -1,8 +1,15 @@
-﻿<h1>Testing Login</h1>
-<div>
-    User's lists
-    <ul>
-        <li *ngFor="let list of lists">{{list.name}}</li>
-    </ul>
-</div>
-<p><a [routerLink]="['/login']">Logout</a></p>
+﻿<mat-card>
+  <mat-card-header>
+    <mat-card-title>User's List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let list of lists">
+        {{list.name}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="['/login']">Logout</a>
+  </mat-card-actions>
+</mat-card>

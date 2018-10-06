@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+// Add every component to use
+import { MatListModule, MatInputModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
@@ -18,7 +24,12 @@ import { LoginComponent } from './login';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatInputModule,
+        MatCardModule,
+        MatButtonModule
     ],
     declarations: [
         AppComponent,
