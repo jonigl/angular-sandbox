@@ -6,6 +6,17 @@ Web server (webpack-dev-server) port 4000
 
 API expected at port 8080
 
+# NPM usage
+
+You need install npm dependencies (first time)
+`npm install`
+
+Build webpack
+`npm run-script build`
+
+Run server
+`npm run-script start`
+
 # Docker usage
 
 ## Build
